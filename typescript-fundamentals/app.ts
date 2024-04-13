@@ -17,4 +17,7 @@ function PrintMovieInfo(title:string, yearReleased:number=2000, ...cast:string[]
 }
 
 
-PrintMovieInfo('Dune',2021, 'Timothy','Zendaya');
+//PrintMovieInfo('Dune',2021, 'Timothy','Zendaya');
+
+const  LogMessage = (message:string) =>  console.log(message);
+LogMessage("Hello World"); 

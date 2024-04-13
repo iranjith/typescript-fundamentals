@@ -14,4 +14,6 @@ function PrintMovieInfo(title, yearReleased = 2000, ...cast) {
     }
     console.log(`Cast: ${cast.join(', ')}`);
 }
-PrintMovieInfo('Dune', 2021, 'Timothy', 'Zendaya');
+//PrintMovieInfo('Dune',2021, 'Timothy','Zendaya');
+const LogMessage = (message) => console.log(message);
+LogMessage("Hello World");
