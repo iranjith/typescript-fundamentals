@@ -1,16 +1,44 @@
-interface Movie{
-    title:string;
-    director:string;
-    yearReleased:number;
-    streaming:boolean;
-    length?:number;
-    logReview?: ReviewLogger;
+interface Movie {
+  title: string;
+  director: string;
+  yearReleased: number;
+  streaming: boolean;
+  length?: number;
+  logReview?: ReviewLogger;
 }
 
-interface ReviewLogger{
-    (review:string):void;
+interface ReviewLogger {
+  (review: string): void;
 }
 
+interface Person {
+  name: string;
+  email: string;
+}
+
+interface Director extends Person {
+  numberOfMovies: number;
+}
+
+interface Actor extends Person {
+  role: string;
+  rehearse: (sceneNumber: void) => void;
+}
+
+let favoriteDirector: Director = {
+  name: "Christopher Nolan",
+  email: "",
+  numberOfMovies: 10,
+};
+
+let favoriteActor: Actor = {
+  email: "",
+  name: "Tom Hanks",
+  role: "Forrest Gump",
+  rehearse: () => {
+    console.log("Rehearsing scene...");
+  },
+};
 
 function GetAllMovies(): Movie[] {
   return [
@@ -110,20 +138,24 @@ function GetTitles(director: string, streaming?: boolean): string[] {
   return searchResults;
 }
 
-let myMovie:Movie = {
-    title: "Dune",
-    director: "Denis Villeneuve",
-    yearReleased: 2021,
-    streaming: true,
-    length: 155,
-    logReview: (review:string) => { console.log(`Review : ${review}`); }
+let myMovie: Movie = {
+  title: "Dune",
+  director: "Denis Villeneuve",
+  yearReleased: 2021,
+  streaming: true,
+  length: 155,
+  logReview: (review: string) => {
+    console.log(`Review : ${review}`);
+  },
 };
 
-let printReview:ReviewLogger = (review:string) => { console.log(`Review : ${review}`); };
+let printReview: ReviewLogger = (review: string) => {
+  console.log(`Review : ${review}`);
+};
 printReview("Excellent!");
 
 // PrintMovieInfo(myMovie);
 
-// if(myMovie.logReview){ 
+// if(myMovie.logReview){
 //     myMovie.logReview("Excellent!");
 // }

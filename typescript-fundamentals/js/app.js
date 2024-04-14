@@ -1,4 +1,17 @@
 "use strict";
+let favoriteDirector = {
+    name: "Christopher Nolan",
+    email: "",
+    numberOfMovies: 10,
+};
+let favoriteActor = {
+    email: "",
+    name: "Tom Hanks",
+    role: "Forrest Gump",
+    rehearse: () => {
+        console.log("Rehearsing scene...");
+    },
+};
 function GetAllMovies() {
     return [
         {
@@ -97,9 +110,13 @@ let myMovie = {
     yearReleased: 2021,
     streaming: true,
     length: 155,
-    logReview: (review) => { console.log(`Review : ${review}`); }
+    logReview: (review) => {
+        console.log(`Review : ${review}`);
+    },
 };
-let printReview = (review) => { console.log(`Review : ${review}`); };
+let printReview = (review) => {
+    console.log(`Review : ${review}`);
+};
 printReview("Excellent!");
 // PrintMovieInfo(myMovie);
 // if(myMovie.logReview){
