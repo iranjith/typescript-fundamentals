@@ -4,7 +4,11 @@ interface Movie{
     yearReleased:number;
     streaming:boolean;
     length?:number;
-    logReview?: (review:string) => void;
+    logReview?: ReviewLogger;
+}
+
+interface ReviewLogger{
+    (review:string):void;
 }
 
 
@@ -115,8 +119,11 @@ let myMovie:Movie = {
     logReview: (review:string) => { console.log(`Review : ${review}`); }
 };
 
-PrintMovieInfo(myMovie);
+let printReview:ReviewLogger = (review:string) => { console.log(`Review : ${review}`); };
+printReview("Excellent!");
 
-if(myMovie.logReview){
-    myMovie.logReview("Excellent!");
-}
+// PrintMovieInfo(myMovie);
+
+// if(myMovie.logReview){ 
+//     myMovie.logReview("Excellent!");
+// }

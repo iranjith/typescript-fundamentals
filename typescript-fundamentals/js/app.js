@@ -99,21 +99,9 @@ let myMovie = {
     length: 155,
     logReview: (review) => { console.log(`Review : ${review}`); }
 };
-PrintMovieInfo(myMovie);
-if (myMovie.logReview) {
-    myMovie.logReview("Excellent!");
-}
-// function CreateMovieID(name: string, id: number): string {
-//   return name + id;
+let printReview = (review) => { console.log(`Review : ${review}`); };
+printReview("Excellent!");
+// PrintMovieInfo(myMovie);
+// if(myMovie.logReview){
+//     myMovie.logReview("Excellent!");
 // }
-// let x: number;
-// x = 5;
-// let IdGenerator: (chars: string, nums: number) => string;
-// IdGenerator = (name: string, id: number) => name + id;
-// let newID: string = IdGenerator("jedi", 20);
-// console.log(newID);
-// let movies:string[] = GetTitles('George Lucas', false);
-// movies.forEach(title => console.log(title));
-//PrintMovieInfo('Dune',2021, 'Timothy','Zendaya');
-// const  LogMessage = (message:string) =>  console.log(message);
-// LogMessage("Hello World");
