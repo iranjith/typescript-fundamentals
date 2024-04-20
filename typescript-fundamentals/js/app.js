@@ -150,7 +150,10 @@ class Documentary extends Video {
         super.printItem();
         console.log(`Subject: ${this.subject} ${this.year}`);
     }
+    printCredits() {
+        console.log(`Credits: ${this.title} ${this.year}`);
+    }
 }
 let vid = new Documentary('The Last Dance', 2020, 'Basketball');
 vid.title = 'The Last Dance';
-vid.printItem();
+vid.printCredits();

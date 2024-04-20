@@ -160,7 +160,7 @@ printReview("Excellent!");
 //     myMovie.logReview("Excellent!");
 // }
 
-class Video {
+abstract class Video {
 
   private _producer: string = ''; 
   static medium:string = 'Audio-Visual';
@@ -181,6 +181,8 @@ class Video {
     console.log(`Title: ${this.title} released in ${this.year}`);
     console.log(`Medium: ${Video.medium}`);
   }
+
+  abstract printCredits(): void;
 }
 
 class Documentary extends Video {
@@ -193,8 +195,12 @@ class Documentary extends Video {
     console.log(`Subject: ${this.subject} ${this.year}`);
   }
  
+  printCredits(): void {
+    console.log(`Credits: ${this.title} ${this.year}`);
+  
+  }
 }
 
-let vid=new Documentary('The Last Dance',2020,'Basketball');
+let vid:Video =new Documentary('The Last Dance',2020,'Basketball');
 vid.title='The Last Dance';
-vid.printItem();
+vid.printCredits();
