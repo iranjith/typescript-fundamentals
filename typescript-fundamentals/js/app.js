@@ -123,9 +123,16 @@ printReview("Excellent!");
 //     myMovie.logReview("Excellent!");
 // }
 class Video {
+    get producer() {
+        return this._producer.toUpperCase();
+    }
+    set producer(value) {
+        this._producer = value;
+    }
     constructor(title, year) {
         this.title = title;
         this.year = year;
+        this._producer = '';
         console.log("Video class constructor");
     }
     printItem() {
@@ -134,3 +141,5 @@ class Video {
 }
 let vid = new Video('MI7', 2022);
 vid.printItem(); // Title: Dune
+vid.producer = 'Tom Cruise';
+console.log(vid.producer);
