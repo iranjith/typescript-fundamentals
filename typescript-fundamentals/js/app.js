@@ -122,3 +122,16 @@ printReview("Excellent!");
 // if(myMovie.logReview){
 //     myMovie.logReview("Excellent!");
 // }
+class Video {
+    constructor() {
+        this.title = '';
+        this.year = 2024;
+        console.log("Video class constructor");
+    }
+    printItem() {
+        console.log(`Title: ${this.title} released in ${this.year}`);
+    }
+}
+let vid = new Video();
+vid.title = "Dune";
+vid.printItem(); // Title: Dune
