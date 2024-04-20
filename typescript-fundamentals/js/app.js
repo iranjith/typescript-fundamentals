@@ -154,6 +154,11 @@ class Documentary extends Video {
         console.log(`Credits: ${this.title} ${this.year}`);
     }
 }
+let Musical = class extends Video {
+    printCredits() {
+        console.log(`Musical Credits: ${this.producer}`);
+    }
+};
 let vid = new Documentary('The Last Dance', 2020, 'Basketball');
 vid.title = 'The Last Dance';
 vid.printCredits();
