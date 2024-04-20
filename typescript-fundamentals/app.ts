@@ -161,13 +161,8 @@ printReview("Excellent!");
 // }
 
 class Video {
-  title: string = "";
-  private year: number = 2024;
-
-  constructor(newTitle: string, newYear: number) {
+  constructor(public title: string, private year: number) {
     console.log("Video class constructor");
-    this.title = newTitle;
-    this.year = newYear;
   }
 
   printItem(): void {
@@ -175,6 +170,6 @@ class Video {
   }
 }
 
-let vid = new Video('Dune', 2021);
+let vid = new Video('MI7', 2022);
 
 vid.printItem(); // Title: Dune

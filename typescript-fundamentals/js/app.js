@@ -123,15 +123,14 @@ printReview("Excellent!");
 //     myMovie.logReview("Excellent!");
 // }
 class Video {
-    constructor() {
-        this.title = '';
-        this.year = 2024;
+    constructor(title, year) {
+        this.title = title;
+        this.year = year;
         console.log("Video class constructor");
     }
     printItem() {
         console.log(`Title: ${this.title} released in ${this.year}`);
     }
 }
-let vid = new Video();
-vid.title = "Dune";
+let vid = new Video('MI7', 2022);
 vid.printItem(); // Title: Dune
