@@ -137,8 +137,10 @@ class Video {
     }
     printItem() {
         console.log(`Title: ${this.title} released in ${this.year}`);
+        console.log(`Medium: ${Video.medium}`);
     }
 }
+Video.medium = 'Audio-Visual';
 let vid = new Video('MI7', 2022);
 vid.printItem(); // Title: Dune
 vid.producer = 'Tom Cruise';

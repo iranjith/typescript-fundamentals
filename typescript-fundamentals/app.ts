@@ -163,6 +163,7 @@ printReview("Excellent!");
 class Video {
 
   private _producer: string = ''; 
+  static medium:string = 'Audio-Visual';
 
   get producer(): string {
     return this._producer.toUpperCase();
@@ -178,6 +179,7 @@ class Video {
 
   printItem(): void {
     console.log(`Title: ${this.title} released in ${this.year}`);
+    console.log(`Medium: ${Video.medium}`);
   }
 }
 
