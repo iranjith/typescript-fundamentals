@@ -173,7 +173,7 @@ class Video {
     this._producer = value;
   }
 
-  constructor(public title: string, private year: number) {
+  constructor(public title: string, protected year: number) {
     console.log("Video class constructor");
   }
 
@@ -190,7 +190,7 @@ class Documentary extends Video {
 
   printItem(): void {
     super.printItem();
-    console.log(`Subject: ${this.subject}`);
+    console.log(`Subject: ${this.subject} ${this.year}`);
   }
  
 }

@@ -148,7 +148,7 @@ class Documentary extends Video {
     }
     printItem() {
         super.printItem();
-        console.log(`Subject: ${this.subject}`);
+        console.log(`Subject: ${this.subject} ${this.year}`);
     }
 }
 let vid = new Documentary('The Last Dance', 2020, 'Basketball');
