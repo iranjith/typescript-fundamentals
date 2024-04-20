@@ -183,7 +183,18 @@ class Video {
   }
 }
 
-let vid = new Video('MI7', 2022);
-vid.printItem(); // Title: Dune
-vid.producer = 'Tom Cruise';
-console.log(vid.producer);
+class Documentary extends Video {
+  constructor(newTitle:string,newYear:number, public subject:string){
+    super(newTitle,newYear);
+  }
+
+  printItem(): void {
+    super.printItem();
+    console.log(`Subject: ${this.subject}`);
+  }
+ 
+}
+
+let vid=new Documentary('The Last Dance',2020,'Basketball');
+vid.title='The Last Dance';
+vid.printItem();
