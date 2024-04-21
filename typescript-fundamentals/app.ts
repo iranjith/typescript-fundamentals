@@ -20,17 +20,12 @@ function getMoviesByDirector(director:string):Promise<string[]>{
   return p;
 }
 
+async function logSearchResults(director:string) {
+  let foundMovies=await getMoviesByDirector(director);
+  console.log(foundMovies);
+}
 console.log("Getting movies by director...");
-getMoviesByDirector("George Lucas")
-  .then((movies) => {
-    console.log("Movies found: ", movies);
-    return movies.length;
-  })
-  .then((numOfMovies) => {
-    console.log(`Number of movies found: ${numOfMovies}`);
-  })
-  .catch((error) => {
-    console.log("Error: ", error);
-  });
+logSearchResults("George Lucas")
+  .catch((error)=>console.log(error));  
 console.log("Search submitted...");
  

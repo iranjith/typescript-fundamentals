@@ -22,6 +22,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const Utility = __importStar(require("./functions"));
 //let allMovies: Movie[] = Utility.GetAllMovies();
@@ -39,16 +48,13 @@ function getMoviesByDirector(director) {
     });
     return p;
 }
+function logSearchResults(director) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let foundMovies = yield getMoviesByDirector(director);
+        console.log(foundMovies);
+    });
+}
 console.log("Getting movies by director...");
-getMoviesByDirector("George Lucas")
-    .then((movies) => {
-    console.log("Movies found: ", movies);
-    return movies.length;
-})
-    .then((numOfMovies) => {
-    console.log(`Number of movies found: ${numOfMovies}`);
-})
-    .catch((error) => {
-    console.log("Error: ", error);
-});
+logSearchResults("George Lucas")
+    .catch((error) => console.log(error));
 console.log("Search submitted...");
