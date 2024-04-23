@@ -23,6 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const classes_1 = require("./classes");
 const Utility = __importStar(require("./functions"));
 //let allMovies: Movie[] = Utility.GetAllMovies();
 // console.log("Getting movies by director...");
@@ -30,7 +31,20 @@ const Utility = __importStar(require("./functions"));
 //   .catch((error)=>console.log(error));  
 // console.log("Search submitted...");
 let inventory = Utility.GetAllMovies();
-let purgedMovies = Utility.Purge(inventory);
-purgedMovies.forEach((movie) => { console.log(movie.title); });
-let purgedNums = Utility.Purge([1, 2, 3, 4, 5]);
-console.log(purgedNums);
+// let purgedMovies:Array<Movie> = Utility.Purge<Movie>(inventory);
+// purgedMovies.forEach((movie:Movie)=>{ console.log(movie.title)});
+// let purgedNums:Array<Number> = Utility.Purge<Number>([1,2,3,4,5]);
+// console.log(purgedNums);
+let favoriteMovies = new classes_1.Favorites();
+inventory.forEach((movie) => { favoriteMovies.add(movie); });
+let firstFav = favoriteMovies.getFirst();
+console.log(firstFav.title);
+let docs = [
+    new classes_1.Documentary("The Beatles: Get Back", 2021, "Music"),
+    new classes_1.Documentary("The Last Dance", 2020, "Sports"),
+    new classes_1.Documentary("The Social Dilemma", 2020, "Technology")
+];
+let favoriteDocs = new classes_1.Favorites();
+docs.forEach((doc) => { favoriteDocs.add(doc); });
+let firstDoc = favoriteDocs.getFirst();
+console.log(firstDoc.title);
