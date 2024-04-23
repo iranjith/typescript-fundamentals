@@ -48,3 +48,6 @@ let favoriteDocs = new classes_1.Favorites();
 docs.forEach((doc) => { favoriteDocs.add(doc); });
 let firstDoc = favoriteDocs.getFirst();
 console.log(firstDoc.title);
+favoriteDocs.printTitles();
+let originalMovie = favoriteMovies.find("A New Hope");
+console.log(`${originalMovie.title} found.`);

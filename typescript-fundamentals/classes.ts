@@ -1,4 +1,4 @@
-import { Actor } from "./interfaces";
+import { Actor, FavoriteItem } from "./interfaces";
 
 export class Performer implements Actor{
     name: string='';
@@ -52,7 +52,7 @@ abstract class Video {
   }
   
 
-  export class Favorites<T>{
+  export class Favorites<T extends FavoriteItem>{
     private _items:Array<T> = [];
     
     add(item:T):void{
@@ -63,6 +63,13 @@ abstract class Video {
         return this._items[0];
     }
 
+    find(title:string):T{
+        return this._items.filter(item=>item.title===title)[0];
+    }
+
+    printTitles():void{
+        this._items.forEach(item=>console.log(item.title));
+    }
   }
   
 let Musical= class extends Video{

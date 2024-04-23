@@ -25,4 +25,8 @@ interface Movie {
     rehearse: (sceneNumber: void) => void;
   }
 
+  export interface FavoriteItem {
+    title: string;
+  }
+
   export {  Movie, ReviewLogger as Logger, Person, Director, Actor}

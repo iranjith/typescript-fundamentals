@@ -37,6 +37,11 @@ let firstDoc: Documentary = favoriteDocs.getFirst();
 console.log(firstDoc.title);
 
 
+favoriteDocs.printTitles();
+
+let originalMovie: Movie = favoriteMovies.find("A New Hope");
+console.log(`${originalMovie.title} found.`);
+
 
 
  

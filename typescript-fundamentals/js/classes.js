@@ -55,6 +55,12 @@ class Favorites {
     getFirst() {
         return this._items[0];
     }
+    find(title) {
+        return this._items.filter(item => item.title === title)[0];
+    }
+    printTitles() {
+        this._items.forEach(item => console.log(item.title));
+    }
 }
 exports.Favorites = Favorites;
 let Musical = class extends Video {
