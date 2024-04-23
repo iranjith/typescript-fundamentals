@@ -22,39 +22,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const Utility = __importStar(require("./functions"));
 //let allMovies: Movie[] = Utility.GetAllMovies();
-function getMoviesByDirector(director) {
-    let p = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let foundMovies = Utility.GetTitles(director);
-            if (foundMovies.length > 0) {
-                resolve(foundMovies);
-            }
-            else {
-                reject("No movies found for the director.");
-            }
-        }, 2000);
-    });
-    return p;
-}
-function logSearchResults(director) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let foundMovies = yield getMoviesByDirector(director);
-        console.log(foundMovies);
-    });
-}
-console.log("Getting movies by director...");
-logSearchResults("George Lucas")
-    .catch((error) => console.log(error));
-console.log("Search submitted...");
+// console.log("Getting movies by director...");
+// Utility.logSearchResults("George Lucas")
+//   .catch((error)=>console.log(error));  
+// console.log("Search submitted...");
+let inventory = Utility.GetAllMovies();
+let purgedMovies = Utility.Purge(inventory);
+purgedMovies.forEach((movie) => { console.log(movie.title); });
+let purgedNums = Utility.Purge([1, 2, 3, 4, 5]);
+console.log(purgedNums);

@@ -4,28 +4,19 @@ import * as Utility from "./functions";
 
 //let allMovies: Movie[] = Utility.GetAllMovies();
 
+// console.log("Getting movies by director...");
+// Utility.logSearchResults("George Lucas")
+//   .catch((error)=>console.log(error));  
+// console.log("Search submitted...");
 
-function getMoviesByDirector(director:string):Promise<string[]>{
-  let p:Promise<string[]> = new Promise((resolve,reject)=>{
-    setTimeout(() => {
-      let foundMovies:string[] = Utility.GetTitles(director);
-      if(foundMovies.length>0){
-        resolve(foundMovies);
-      }
-      else{
-        reject("No movies found for the director.");
-      }
-    }, 2000);
-  });
-  return p;
-}
 
-async function logSearchResults(director:string) {
-  let foundMovies=await getMoviesByDirector(director);
-  console.log(foundMovies);
-}
-console.log("Getting movies by director...");
-logSearchResults("George Lucas")
-  .catch((error)=>console.log(error));  
-console.log("Search submitted...");
+let inventory: Array<Movie> = Utility.GetAllMovies();
+let purgedMovies:Array<Movie> = Utility.Purge<Movie>(inventory);
+
+purgedMovies.forEach((movie:Movie)=>{ console.log(movie.title)});
+
+let purgedNums:Array<Number> = Utility.Purge<Number>([1,2,3,4,5]);
+console.log(purgedNums);
+
+
  

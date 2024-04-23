@@ -114,3 +114,27 @@ export function GetAllMovies(): Movie[] {
   };
   printReview("Excellent!");
   
+  function getMoviesByDirector(director:string):Promise<string[]>{
+    let p:Promise<string[]> = new Promise((resolve,reject)=>{
+      setTimeout(() => {
+        let foundMovies:string[] = GetTitles(director);
+        if(foundMovies.length>0){
+          resolve(foundMovies);
+        }
+        else{
+          reject("No movies found for the director.");
+        }
+      }, 2000);
+    });
+    return p;
+  }
+
+  export async function logSearchResults(director:string) {
+    let foundMovies=await getMoviesByDirector(director);
+    console.log(foundMovies);
+  }
+
+
+  export function Purge<T>(inventory: Array<T>): Array<T> {
+    return inventory.splice(3, inventory.length);
+  }
